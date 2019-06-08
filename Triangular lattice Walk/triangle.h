@@ -2,13 +2,34 @@
 #include <sstream>
 #include "Complex.h"
 
-typedef struct { complex e0[2]; complex e1[2]; complex e2[2];} triangle;
+class Triangle
+{
+public:
+	complex edge[3][2];
 
-void setNulltriangle(triangle *T) {
-	(*T).e0[0] = 0.0;
-	(*T).e0[1] = 0.0;
-	(*T).e1[0] = 0.0;
-	(*T).e1[1] = 0.0;
-	(*T).e2[0] = 0.0;
-	(*T).e2[1] = 0.0;
-}
+	Triangle()
+	{
+		for (unsigned int k = 0; k < 3; k++)
+		{
+				for (unsigned int cp = 0; cp < 2; cp++)
+				{
+					edge[k][cp] = 0.0;
+				}
+		}
+	}
+
+	~Triangle() {
+	}
+
+	void setNull() {
+
+		for (unsigned int k = 0; k < 3; k++)
+		{
+			for (unsigned int cp = 0; cp < 2; cp++)
+			{
+				edge[k][cp] = 0.0;
+			}
+		}
+
+	}
+};
